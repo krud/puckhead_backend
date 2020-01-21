@@ -1,4 +1,6 @@
 class PuckheadGamesController < ApplicationController
+    before_action :authenticate, only: [:create] 
+    
     def index 
         games = PuckheadGame.all
         render json: games, include: :players
