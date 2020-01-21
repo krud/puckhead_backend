@@ -1,0 +1,2 @@
+class PuckheadGamePlayersController < ApplicationController
+end
