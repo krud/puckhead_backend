@@ -12,7 +12,7 @@ class AuthenticationController < ApplicationController
                 render json: {error: "Invalid Username or Password"}, status: :unauthorized
             else 
                 secret_key = Rails.application.secrets.secret_key_base
-                token = JWT.encode({ user_id: @user.id, username: @user.username}, secret_key)
+                token = JWT.encode({ user_id: @user.id}, secret_key)
                 render json: { token: token, user: @user }
             end
         end 
