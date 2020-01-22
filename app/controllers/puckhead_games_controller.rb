@@ -1,14 +1,13 @@
 class PuckheadGamesController < ApplicationController
-    before_action :authenticate, only: [:create] 
     
     def index 
         games = PuckheadGame.all
-        render json: games, include: :players
+        render json: games
     end 
 
     def show 
         game = PuckheadGame.find(params_id)
-        render json: game, include: :players
+        render json: game
     end 
 
     def create
@@ -17,14 +16,14 @@ class PuckheadGamesController < ApplicationController
             game.save
         end 
 
-        render json: game, include: :players
+        render json: game
 
     end 
 
     private 
 
     def puckheadGame_params
-        params.require().permit(
+        params.require(:puckhead_game).permit(
             :user_id,
             :points
         )
