@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :puckhead_game_players
   resources :puckhead_games, only: [:index, :show, :create]
-  resources :players, only: [:index, :show]
+  resources :players, only: [:index, :show, :update]
   resources :users, only: [:index, :show, :create, :update]
 
   post "login", to: "authentication#login"

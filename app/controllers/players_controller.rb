@@ -5,7 +5,13 @@ class PlayersController < ApplicationController
     end 
 
     def show
-        player = Player.find(params_id)
+        player = Player.find(params[:id])
+        render json: player
+    end 
+
+    def update 
+        player = Player.find(params[:id])
+        player.update(img: params[:img])
         render json: player
     end 
 end
