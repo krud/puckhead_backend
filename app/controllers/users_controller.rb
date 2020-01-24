@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
     end 
 
+    def destroy
+        @user.destroy
+    end
+
     private 
 
     def find_user
@@ -26,6 +30,6 @@ class UsersController < ApplicationController
     end 
 
     def user_params
-        params.require(:user).permit([:name, :username, :password])
+        params.require(:user).permit([:name, :username, :password, :puckhead_total_points])
     end 
 end
